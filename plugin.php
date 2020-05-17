@@ -20,8 +20,21 @@ add_shortcode( 'profile_photo_louwe', 'profile_photo_louwe_fun' );
 
 function profile_photo_louwe_fun( $atts ) {
     //return "hellooo";
+
+//find profile pic na same og id sa user like pp-id
 ?>
-<p>this is a test</p>
+<img src="smiley<?php 
+
+echo $id;?>.gif" alt="Smiley face" height="42" width="42">
+
+<form action="" method="post" enctype="multipart/form-data">		
+		<div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+        <div>
+		<input type="submit" value="Upload Image" name="submit">
+        </div>
+</form>
+
+
 <?php
 
 
