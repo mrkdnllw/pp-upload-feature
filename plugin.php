@@ -91,7 +91,8 @@ function profile_photo_louwe_fun( $atts ) {
 					
 				} else {
 					//update_option('has_pp_'.get_current_user_id(),'no');
-					echo "<p>Sorry, there was an error uploading your file. </p>";
+                    echo "<p>Sorry, there was an error uploading your file. </p>";
+                    echo $_FILES["fileToUpload"]["error"];
 				}
 
             }// close if uploadok   
