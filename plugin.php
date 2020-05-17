@@ -12,3 +12,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 //test
 //test2
+
+//make shortcode 
+
+
+add_shortcode( 'profile_photo_louwe', 'profile_photo_louwe_fun' );
+
+function profile_photo_louwe_func( $atts ) {
+    return "hellooo";
+}
