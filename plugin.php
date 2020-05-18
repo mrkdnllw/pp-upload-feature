@@ -39,7 +39,7 @@ function profile_photo_louwe_fun( $atts ) {
     <?php
 
     $target_dir = plugin_dir_path( __FILE__ ) . 'user-photos/';
-    echo "target_dir: ".$target_dir;
+    echo "target_dir: ".$target_dir."<br>";
 
     //final file name part bef user id
     //temp name ni
@@ -50,10 +50,10 @@ function profile_photo_louwe_fun( $atts ) {
     
 		
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		
+		echo "file type:". $imageFileType."<br>";
 		//finalizing file name chuchu
 	$target_file = $target_dir . 'profile-pic-'. get_current_user_id().'.'.$imageFileType;
-        echo "user_id: ".get_current_user_id();
+        echo "user_id: ".get_current_user_id()."<br>";
     
     if(isset($_POST["submit"])) {
 
@@ -77,6 +77,7 @@ function profile_photo_louwe_fun( $atts ) {
 				echo "<p>Sorry, your file was not uploaded.</p>";
 			// if everything is ok, try to upload file
 			} else {
+
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 					//done nothing 
 					/*
