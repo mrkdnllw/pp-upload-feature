@@ -39,7 +39,7 @@ function profile_photo_louwe_fun( $atts ) {
     <?php
 
     $target_dir = plugin_dir_path( __FILE__ ) . 'user-photos/';
-    echo $target_dir;
+    echo "target_dir: ".$target_dir;
 
     //final file name part bef user id
     //temp name ni
@@ -53,7 +53,7 @@ function profile_photo_louwe_fun( $atts ) {
 		
 		//finalizing file name chuchu
 	$target_file = $target_dir . 'profile-pic-'. get_current_user_id().'.'.$imageFileType;
-        
+        echo "user_id: ".get_current_user_id();
     
     if(isset($_POST["submit"])) {
 
