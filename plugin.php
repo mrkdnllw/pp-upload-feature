@@ -39,7 +39,7 @@ function profile_photo_louwe_fun( $atts ) {
     <?php
 
     $target_dir = plugin_dir_path( __FILE__ ) . 'user-photos/';
-
+    echo $target_dir;
 
     //final file name part bef user id
     //temp name ni
@@ -91,7 +91,7 @@ function profile_photo_louwe_fun( $atts ) {
 					
 				} else {
 					//update_option('has_pp_'.get_current_user_id(),'no');
-                    echo "<p>Sorry, there was an error uploading your file. </p>";
+                    echo "<p>move_uploaded_file() error: </p>";
                     echo $_FILES["fileToUpload"]["error"];
 				}
 
