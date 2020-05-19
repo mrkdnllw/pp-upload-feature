@@ -16,6 +16,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 //make shortcode 
 
 add_shortcode( 'profile_pic_louwe', 'profile_pic_louwe_f' );
+add_action('wp_enqueue_scripts', 'enqueue_styles'); 
+
+function enqueue_styles(){
+    wp_register_style( 'foo-styles',  plugin_dir_url( __FILE__ ) . 'css/styles.css?'. rand(0, 1000) );
+    wp_enqueue_style( 'foo-styles' );
+
+}
 
 function profile_pic_louwe_f( $atts ) {
     //return "hellooo";
@@ -23,10 +30,10 @@ function profile_pic_louwe_f( $atts ) {
     //find profile pic na same og id sa user like pp-id
     ?>
     <form action="" method="post" enctype="multipart/form-data">	
-         <img class="" src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" alt="Smiley face" width="200" height="200"></p>
+         <img class="photo_louwe" src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" alt="Smiley face" width="200" height="200"></p>
             <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
             <div>
-            <input type="submit" value="Upload Photo" name="submit">
+            <input class="input_louwe" type="submit" value="Upload Photo" name="submit">
             </div>
     </form>
 
