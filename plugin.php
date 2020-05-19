@@ -15,31 +15,26 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 //make shortcode 
 
+add_shortcode( 'profile_pic_louwe', 'profile_pic_louwe_f' );
 
-add_shortcode( 'profile_photo_louwe', 'profile_photo_louwe_fun' );
-
-function profile_photo_louwe_fun( $atts ) {
+function profile_pic_louwe_f( $atts ) {
     //return "hellooo";
 
     //find profile pic na same og id sa user like pp-id
     ?>
-    <img src="smiley<?php 
-
-    echo $id;?>.gif" alt="Smiley face" height="42" width="42">
-
-    <form action="" method="post" enctype="multipart/form-data">		
+    <form action="" method="post" enctype="multipart/form-data">	
+         <img class="" src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" alt="Smiley face" width="200" height="200"></p>
             <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
             <div>
-            <input type="submit" value="upload profile picture" name="submit">
+            <input type="submit" value="Upload Photo" name="submit">
             </div>
-            <button>refresh photo</button>
     </form>
 
 
     <?php
 
     $target_dir = plugin_dir_path( __FILE__ ) . 'user-photos/';
-    echo "target_dir: ".$target_dir."<br>";
+    //echo "target_dir: ".$target_dir."<br>";
 
     //final file name part bef user id
     //temp name ni
@@ -50,10 +45,10 @@ function profile_photo_louwe_fun( $atts ) {
     
 		
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		echo "file type:". $imageFileType."<br>";
+		//echo "file type:". $imageFileType."<br>";
 		//finalizing file name chuchu
 	$target_file = $target_dir . 'profile-pic-'. get_current_user_id().'.'.$imageFileType;
-        echo "user_id: ".get_current_user_id()."<br>";
+        //echo "user_id: ".get_current_user_id()."<br>";
     
     if(isset($_POST["submit"])) {
 
@@ -74,7 +69,7 @@ function profile_photo_louwe_fun( $atts ) {
             
             // Check if $uploadOk is set to 0 by an error
 			if ($uploadOk == 0) {
-				echo "<p>Sorry, your file was not uploaded.</p>";
+				echo "<p>upload failed, $uploadOK == 0</p>";
 			// if everything is ok, try to upload file
 			} else {
 
@@ -101,3 +96,5 @@ function profile_photo_louwe_fun( $atts ) {
     }// close isset..
 
 }// close profile photo louwe fun 
+
+
