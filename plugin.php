@@ -29,9 +29,9 @@ function profile_pic_louwe_f( $atts ) {
 
     //find profile pic na same og id sa user like pp-id
     ?>
-    <form action="" method="post" enctype="multipart/form-data">	
+    <form class="form_louwe"action="" method="post" enctype="multipart/form-data">	
          <img class="photo_louwe" src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" alt="Smiley face" width="200" height="200"></p>
-            <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+            <div><input class="choosebox_louwe" type="file" name="fileToUpload" id="fileToUpload"></div>
             <div>
             <input class="input_louwe" type="submit" value="Upload Photo" name="submit">
             </div>
