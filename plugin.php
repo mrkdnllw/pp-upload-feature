@@ -22,6 +22,11 @@ function enqueue_styles(){
     wp_register_style( 'foo-styles',  plugin_dir_url( __FILE__ ) . 'css/styles.css?'. rand(0, 1000) );
     wp_enqueue_style( 'foo-styles' );
 
+    
+	wp_enqueue_script( 'dir-list', plugin_dir_url(__FILE__) . 'js/plugin.js', array( 'jquery' ), date("h:i:s"), true );
+	wp_localize_script( 'dir-list', 'the_ajax_script', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	
+
 }
 
 function profile_pic_louwe_f( $atts ) {
@@ -29,14 +34,28 @@ function profile_pic_louwe_f( $atts ) {
 
     //find profile pic na same og id sa user like pp-id
     ?>
-    <form class="form_louwe"action="" method="post" enctype="multipart/form-data">	
-         <img class="photo_louwe" src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" alt="Smiley face" width="200" height="200"></p>
-            <div><input class="choosebox_louwe" type="file" name="fileToUpload" id="fileToUpload"></div>
-            <div>
-            <input class="input_louwe" type="submit" value="Upload Photo" name="submit">
-            </div>
-    </form>
+    <form class="form_louwe"action="" method="post" enctype="multipart/form-data" id="form_louwe_id">
+    <div id="foo2">	
+            <div id="foo1">
+                    <img class="photo_louwe" onerror="console.log('nierror'); this.src='<?php echo plugin_dir_url(__FILE__) .'user-photos/default.jpg';?>'"    src="<?php echo plugin_dir_url(__FILE__) .'user-photos/profile-pic-'. get_current_user_id() . '.jpg?'.rand(1, 1000); ?>" width="200" height="200"></p>
+                        
+                    <label for="fileToUpload" id="label1">
+                        <img src="<?php echo plugin_dir_url(__FILE__) .'user-photos/technology.png';?>" style="width: 30px"/>
+                    </label>
 
+            </div><!--end of foo1-->
+
+            
+            <div>
+                <input style="display:none"class="choosebox_louwe" type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            
+            
+            <div>
+                <input style="display:none" class="input_louwe" type="submit" value="Upload Photo" name="submit">
+            </div>
+        </div>	
+    </form>
 
     <?php
 

@@ -5,9 +5,27 @@
   
 
   .photo_louwe{
-      border-radius: 50%;
+      border-radius: 50%!important;
       height: 143px !important;
     width: 143px !important;
-    object-fit: cover;
-    margin-left: 10px;
+    object-fit: cover!important;
+    margin-left: 10px!important;
   }
+
+  .choosebox_louwe{
+
+    font-size: 16px!important;
+  }
+
+  #label1{
+    position: relative;
+    top: -60px;
+    left: 120px;
+
+
+  }
+
+  img.photo_louwe {
+    border: 1px grey solid;
+    padding: 10px;
+}
